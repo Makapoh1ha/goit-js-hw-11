@@ -1,4 +1,3 @@
-import '../scss/custom.scss'
 import './css/styles.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -45,12 +44,12 @@ async function onFormSubmit(event) {
     if (response.totalHits < options.pageItemCount) {          
           return
     }
-        console.log('current page:',options.pageNumber)
+        
         options.pageNumber += 1;
-        console.log('next page :',options.pageNumber)
+        
     setTimeout(() => refs.btnLoadMore.classList.remove('is-hidden'), 1000)
   } catch (error) {
-    console.log('Это тот же эрор что и выше',error)
+    
   } 
 }
 
@@ -59,10 +58,8 @@ async function onClickLoadMoreBtn() {
   try {
     buttonDisabledTrue()
     const response = await fetchPhoto(formInput.value)
-    console.log('current page:',options.pageNumber)
-    options.pageNumber += 1
-    console.log('next page :', options.pageNumber)
-    countryArrayMarkup(response)
+        options.pageNumber += 1
+        countryArrayMarkup(response)
     lightbox.refresh()
     
     if (response.totalHits / options.pageItemCount < options.pageNumber) {
@@ -87,7 +84,7 @@ function countryArrayMarkup(array) {
     {
       // console.log(largeImageURL)
       return `
-  <div class="photo-card">
+  <div class="photo-card post">
     <a href="${largeImageURL}">
       <img src="${webformatURL}" alt="${tags}" loading="lazy" />
     </a>

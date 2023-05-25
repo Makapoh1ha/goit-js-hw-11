@@ -44,9 +44,9 @@ body {
 
 .gallery {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 30px;
 }
 
 .photo-card {
